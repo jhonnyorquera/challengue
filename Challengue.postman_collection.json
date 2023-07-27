@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "e2e8eedc-ec29-4dd3-8476-dff93336644b",
+		"name": "Challengue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7285744",
+		"_collection_link": "https://blue-comet-818684.postman.co/workspace/Arquitectura~2ea7a8ca-0b9a-4e4e-a020-7ea7aa883fe3/collection/7285744-e2e8eedc-ec29-4dd3-8476-dff93336644b?action=share&creator=7285744&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "CreatePerson",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n[ \r\n {\r\n    \"name\":\"Gabriel Her\",\r\n    \"address\": \"direccion\",\r\n    \"telephone\" : \"2280629\",\r\n    \"password\" : \"thisIs\",\r\n    \"identity\": \"1720508869\", \r\n    \"age\": 24,\r\n    \"genre\": \"M\" \r\n    \r\n }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/customer/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"customer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPersonByIdentify",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/customer/find?identifier=1720508869",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"customer",
+								"find"
+							],
+							"query": [
+								{
+									"key": "identifier",
+									"value": "1720508869"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\":\"Gabriel\",\r\n    \"address\": \"direccion\",\r\n    \"telephone\" : \"2280629\",\r\n    \"password\" : \"thisIs\",\r\n    \"identity\": \"172050855569\", \r\n    \"age\": 24,\r\n    \"genre\": \"M\" \r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/customer/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"customer",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCustomer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/customer/delete?identifier=1720508869",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"customer",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "identifier",
+									"value": "1720508869"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "CreateAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  \r\n  [\r\n   {\r\n      \"numberAccount\": \"12346999545\", \r\n       \"type\":\"CA\", \r\n       \"initialBalance\":200, \r\n       \"identityCustomer\":\"1720508869\"\r\n   }\r\n  ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/account/find?number=12346999545",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"account",
+								"find"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "12346999545"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/account/delete?number=12346999545",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"account",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "12346999545"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movements",
+			"item": [
+				{
+					"name": "CreateMovement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\":\"12346999545\",\r\n    \"movement\": -40\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/movement/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"movement",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/nttBanco/movement/report?identity=1720508869&dateBegin=17052023&dateEnd=21072023",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nttBanco",
+								"movement",
+								"report"
+							],
+							"query": [
+								{
+									"key": "identity",
+									"value": "1720508869"
+								},
+								{
+									"key": "dateBegin",
+									"value": "17052023"
+								},
+								{
+									"key": "dateEnd",
+									"value": "21072023"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
