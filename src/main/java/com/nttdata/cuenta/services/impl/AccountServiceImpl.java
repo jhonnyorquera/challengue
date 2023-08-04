@@ -28,7 +28,11 @@ public class AccountServiceImpl implements AccountService {
     });
   }
 
-
+  /**
+   * Save a account validating if a customer and account exist
+   *
+   * @param AccountDto dto for request
+   */
   private void saveAccount(AccountDto accountDto) {
     Customer customer = customerRepository.findByIdentifier(accountDto.getIdentityCustomer());
     Account account = accountRepository.findByNumber(accountDto.getNumberAccount());
