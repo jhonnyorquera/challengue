@@ -6,20 +6,25 @@ services:
       context: ./DockerPostgresql
       dockerfile: db.Dockerfile
     container_name: db
+    networks:
+      - challenge
     hostname: db
     environment:
-      POSTGRES_USER: admin
+      POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: admin
     ports:
-      - "5432:5432"
-  springboot-docker-container:
-    image: springboot-docker-container
-    container_name: springboot-docker-container
+      - 55432:5432
+  backend:
     ports:
       - 8080:8080
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
+    container_name: backend  
+    networks:
+      - challenge
     depends_on:
       - db
+networks:
+  challenge:
