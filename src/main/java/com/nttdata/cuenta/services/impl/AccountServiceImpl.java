@@ -36,8 +36,8 @@ public class AccountServiceImpl implements AccountService {
   private void saveAccount(AccountDto accountDto) {
     Customer customer = customerRepository.findByIdentifier(accountDto.getIdentityCustomer());
     Account account = accountRepository.findByNumber(accountDto.getNumberAccount());
-    if (customer.equals(null) || account.equals(null)) {
-      throw new RuntimeException("exepcion");
+    if (customer.equals(null) || account != null) {
+      throw new RuntimeException("no existe cliente o el nro de cuenta esta duplicado");
     }
     Account accounts = accountRepository.save(mappingAccount(accountDto, customer));
     saveFirsMovement(accounts, accountDto.getInitialBalance());

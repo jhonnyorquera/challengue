@@ -25,8 +25,8 @@ public class MovementServiceImpl implements MovementService {
   @Override
   public void saveMovement(MovementDto movementDto) {
     Account account = accountRepository.findByNumber(movementDto.getAccountNumber());
-    if (account.equals(null)) {
-      throw new RuntimeException("expecion");
+    if (account.equals(null)  || Math.abs(movementDto.getMovement())==0) {
+      throw new RuntimeException("no existe cliente o el valor del movimiento es 0");
     }
     if (Double.compare(Math.abs(movementDto.getMovement()), 0) != 0) {
       if (Double.compare(movementDto.getMovement(), 0) > 0) {
