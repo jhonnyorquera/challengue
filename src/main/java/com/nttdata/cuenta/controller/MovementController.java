@@ -2,8 +2,8 @@ package com.nttdata.cuenta.controller;
 
 import com.nttdata.cuenta.dto.MovementDto;
 import com.nttdata.cuenta.dto.ReportMovementDto;
-import com.nttdata.cuenta.services.impl.MovementServiceImpl;
-import com.nttdata.cuenta.services.impl.ReportServiceImpl;
+import com.nttdata.cuenta.services.MovementService;
+import com.nttdata.cuenta.services.ReportService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class MovementController {
 
-  private MovementServiceImpl movementServiceImpl;
-  private ReportServiceImpl reportService;
+  private MovementService movementService;
+  private ReportService reportService;
 
   @PostMapping("/create")
-  public void saveCustomerPerson(@RequestBody MovementDto movementDto) {
+  public void saveMovement(@RequestBody MovementDto movementDto) {
     if (movementDto.getAccountNumber().equals("") || movementDto.getAccountNumber() == null) {
       throw new RuntimeException("Account Number is required");
     }
-    movementServiceImpl.saveMovement(movementDto);
+    movementService.saveMovement(movementDto);
   }
 
   @GetMapping("/report")
